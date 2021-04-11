@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+
+:root {
+    --main-bg-color: #FFFFFF;
+    --main-heading-color: #101C34;
+    --main-text-color: #7d8597;
+    --shadow-color: #EBECEE;
+    --cta-color: #fbbc05;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --google-red: #ea4335; --google-red-bg: rgba(234, 67, 53, 0.1);
+    --google-blue: #4285f4; --google-blue-bg: rgba(66, 133, 244, 0.1);
+    --google-yellow: #fbbc05; --google-yellow-bg: rgba(251, 188, 5, 0.1);
+    --google-green: #34a853; --google-green-bg: rgba(52, 168, 83, 0.1);
+    --spacing-m: 40px;
+    --spacing-l: 60px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+}
+
+header {
+    height: 8rem;
+    width: 100%;
+}
+
+.header-container {
+    padding: 0 var(--spacing-l);
+    height: 100%;
+    width: 100%;
+}
+
+.header-inner-left {
+    float: left;
+    height: 100%;
+    width: 15rem;
+    justify-content: center;
+}
+
+.header-inner-right {
+    height: 100%;
+    width: calc(100% - 15rem);
+    justify-content: flex-end;
+}
+
+.menu li {
+    margin-left: var(--spacing-m);
+}
+
+.menu li:nth-child(1) {
+    margin-left: 0;
+}
+
+.btn {
+    font-weight: 600;
+    width: max-content;
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    color: var(--cta-color);
+    border: 2px solid var(--cta-color);
+}
+
+.cta {
+    color: #FFF;
+    background-color: var(--cta-color);
+    box-shadow: 3px 3px 6px var(--shadow-color);
+}
+
+.cta-text {
+    color: var(--cta-color);
+}
+
+.flex-r {
+    display: flex;
+    align-items: center;
+}
+
+.flex-c {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.span-1-of-1 {
+    width: 100%;
+    text-align: center;
+}
+
+.span-1-of-2 {
+    width: 50%;
+}
+
+.span-1-of-3 {
+    width: 33.33%;
+}
+
+.span-1-of-4 {
+    width: 25%;
+}
+
+.container {
+    width: 100%;
+    padding: 0 var(--spacing-l);
+}
+
+.wrapper {
+    width: 100%;
+    padding: var(--spacing-m) 0;
+}
+
+.spacer {
+    margin: 0 var(--spacing-l);
+    padding: var(--spacing-m) 0;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.btn-wrapper {
+    margin: auto;
+    width: max-content;
+}
+
+h1 {
+    color: var(--main-heading-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+h2 {
+    color: var(--main-heading-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    color: var(--main-heading-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h4 {
+    color: var(--main-heading-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card {
+    padding: var(--spacing-m);
+    border-radius: 10px;
+}
+
+p {
+    margin: 1rem auto 2rem auto;
+    max-width: 40rem;
+}
+
+footer {
+    display: block;
+    width: 100%;
+}
+
+.colophon {
+    width: 25%;
+}
+
+.links-wrapper {
+    justify-content: flex-end;
+    width: 75%;
+}
+
+.links-section {
+    width: 25%;
+}
+
+.links li {
+    margin-top: 10px;
+}
+
+.icon {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.blue {
+    color: var(--google-blue);
+    background-color: var(--google-blue-bg);
+}
+
+.green {
+    color: var(--google-green);
+    background-color: var(--google-green-bg);
+}
+
+.yellow {
+    color: var(--google-yellow);
+    background-color: var(--google-yellow-bg);
+}
+
+.red {
+    color: var(--google-red);
+    background-color: var(--google-red-bg);
+}
+
+/*------END OF FORMAT -------*/
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6rem;
+    justify-content: center;
+}
+
+.side-nav {
+    width: 100%;
+    justify-content: center;
+    color: var(--cta-color);
+    padding: var(--spacing-m) 0;
+    border-right: 1px solid var(--border-color);
+}
+
+.side-nav li {
+    margin-top: var(--spacing-m);
+}
+
+.side-nav li:nth-child(1) {
+    margin-top: 0;
+}
+
+.svg {
+    height: 15rem;
+}
+
+.cards {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards div {
+    flex-shrink: 0;
+}
+
+.img-wrapper {
+    max-width: 35rem;
+    margin: auto;
+}
+
+footer .wrapper, .links-wrapper {
+    align-items: flex-start;
+}
+
+.socials-wrapper svg {
+    margin-top: 10px;
+    margin-right: 10px;
+}
