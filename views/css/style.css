@@ -60,12 +60,19 @@ header {
 }
 
 .btn {
+    cursor: pointer;
     font-weight: 600;
     width: max-content;
     padding: 0.6rem 2rem;
     border-radius: 50px;
     color: var(--cta-color);
     border: 2px solid var(--cta-color);
+    transition: all 0.4s;
+}
+
+.btn:hover {
+    color: #FFF;
+    background-color: var(--cta-color);
 }
 
 .cta {
