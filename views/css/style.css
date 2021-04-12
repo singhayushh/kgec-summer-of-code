@@ -4,7 +4,7 @@
     --main-bg-color: #FFFFFF;
     --main-heading-color: #101C34;
     --main-text-color: #7d8597;
-    --shadow-color: #EBECEE;
+    --shadow-color: rgba(0, 0, 0, 0.1);
     --cta-color: #fbbc05;
     --border-color: rgba(0, 0, 0, 0.1);
     --google-red: #ea4335; --google-red-bg: rgba(234, 67, 53, 0.1);
@@ -68,21 +68,23 @@ header {
     color: var(--cta-color);
     border: 2px solid var(--cta-color);
     transition: all 0.4s;
+    isolation: isolate;
 }
 
 .btn:hover {
-    color: #FFF;
+    color: #000;
     background-color: var(--cta-color);
 }
 
 .cta {
-    color: #FFF;
+    color: #000;
     background-color: var(--cta-color);
     box-shadow: 3px 3px 6px var(--shadow-color);
 }
 
 .cta-text {
     color: var(--cta-color);
+    isolation: isolate;
 }
 
 .flex-r {
