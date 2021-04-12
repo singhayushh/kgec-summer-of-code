@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # KGEC Summer of Code
 
 ### Built With
@@ -26,3 +27,9 @@ To run this project locally, you need to have the following softwares installed:
 <a href="https://github.com/singhayushh/kgec-summer-of-code/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=singhayushh/kgec-summer-of-code" />
 </a>
+=======
+# kgec-summer-of-code
+Website for KSoC v1.0
+
+
+>>>>>>> 9c44e1143d8c6b091566c8922190c38ca2200dd9
