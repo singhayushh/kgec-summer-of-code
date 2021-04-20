@@ -2,7 +2,6 @@ package api
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"time"
 
@@ -10,7 +9,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-var repos [13]string = [13]string{"space-missions", "computer-vision-into-reality", "multipurpose-chatbot", "heart-saver", "hello-ml", "passman", "androlearn", "resumie", "cleanurge-mcu", "clearnurge-backend", "libraryly", "sac-kgec-web", "dsck-website"}
+var repos [14]string = [14]string{"space-missions", "computer-vision-into-reality", "multipurpose-chatbot", "heart-saver", "hello-ml", "passman", "androlearn", "resumie", "cleanurge-mcu", "cleanurge-backend", "libraryly", "sac-kgec-web", "dsck-website", "cleanurge-app"}
 
 var startOfTime time.Time = time.Date(2021, time.Month(4), 10, 0, 0, 0, 0, time.UTC)
 
@@ -24,15 +23,18 @@ type GitHubAPI struct {
 
 // Issue struct
 type Issue struct {
-	Title string `json:"title,omitempty"`
-	URL   string `json:"url,omitempty"`
+	Title      string `json:"title,omitempty"`
+	URL        string `json:"url,omitempty"`
+	Comments   int    `json:"comments,omitempty"`
+	Repository string `json:"repository,omitempty"`
 }
 
 // Pull struct
 type Pull struct {
-	Title string `json:"title,omitempty"`
-	URL   string `json:"url,omitempty"`
-	User  User   `json:"user,omitempty"`
+	Title      string `json:"title,omitempty"`
+	URL        string `json:"url,omitempty"`
+	User       User   `json:"user,omitempty"`
+	Repository string `json:"repository,omitempty"`
 }
 
 // User struct
@@ -49,8 +51,8 @@ func (g *GitHubAPI) Init() {
 	)
 	tc := oauth2.NewClient(g.ctx, ts)
 	g.client = github.NewClient(tc)
+	g.FetchIssueStats()
 	g.FetchPullStats()
-	fmt.Println(g.pulls)
 }
 
 // FetchIssueStats ...
@@ -58,10 +60,10 @@ func (g *GitHubAPI) FetchIssueStats() {
 	for _, repo := range repos {
 		issues, _, err := g.client.Issues.ListByRepo(g.ctx, "dsckgec", repo, &github.IssueListByRepoOptions{State: "open", Since: startOfTime})
 		if err != nil {
-			return
+			continue
 		}
 		for _, issue := range issues {
-			newIssue := Issue{*issue.Title, *issue.URL}
+			newIssue := Issue{*issue.Title, *issue.HTMLURL, *issue.Comments, repo}
 			g.issues = append(g.issues, newIssue)
 		}
 	}
@@ -72,10 +74,10 @@ func (g *GitHubAPI) FetchPullStats() {
 	for _, repo := range repos {
 		pulls, _, err := g.client.PullRequests.List(g.ctx, "dsckgec", repo, &github.PullRequestListOptions{State: "closed"})
 		if err != nil {
-			return
+			continue
 		}
 		for _, pull := range pulls {
-			newPull := Pull{*pull.Title, *pull.URL, User{*pull.User.Login, *pull.User.HTMLURL}}
+			newPull := Pull{*pull.Title, *pull.HTMLURL, User{*pull.User.Login, *pull.User.HTMLURL}, repo}
 			g.pulls = append(g.pulls, newPull)
 		}
 	}
