@@ -158,6 +158,10 @@ h4 {
     font-weight: 600;
 }
 
+.card-wrapper {
+    flex-wrap: wrap;
+}
+
 .card {
     padding: var(--spacing-m);
     border-radius: 10px;
@@ -187,7 +191,7 @@ footer {
 }
 
 .links li {
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .icon {
@@ -268,6 +272,6 @@ footer .wrapper, .links-wrapper {
 }
 
 .socials-wrapper svg {
-    margin-top: 10px;
+    margin-top: 1rem;
     margin-right: 10px;
 }

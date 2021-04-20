@@ -1,11 +1,50 @@
 {{template "header.html" .}}
 
 <section>
-    <div class="container">
-        {{range $i,$j := .json}}
-        <p>{{$j.Title}}</p>
-        {{end}}
+    <div class="span-1-of-1">
+        <div class="container">
+            <div class="wrapper">
+                <h1>Dashboard</h1>
+                <p>
+                    View Latest Issues and Pull Requests
+                </p>
+            </div>
+            <div class="wrapper">
+                <h2 style="width: 100%">Issues</h2>
+                <div class="flex-r card-wrapper">
+                    {{range $i,$j := .issues}}
+                    <div class="span-1-of-2">
+                        <div class="card">
+                            <h4>
+                                {{$j.Title}}
+                            </h4>
+                            <p>dsckgec/{{$j.Repository}}</p>
+                            <p>{{$j.Comments}} Comments</p>
+                            <a href={{$j.URL}}>Link</a>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+            <div class="wrapper">
+                <h2 style="width: 100%">Pulls</h2>
+                <div class="flex-r card-wrapper">
+                    {{range $i,$j := .pulls}}
+                    <div class="span-1-of-2">
+                        <div class="card">
+                            <h4>
+                                {{$j.Title}}
+                            </h4>
+                            <p>dsckgec/{{$j.Repository}}</p>
+                            <a href={{$j.User.HTMLURL}}>{{$j.User.Login}}</a>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
     </div>
+    
 </section>
 
 {{template "footer.html" .}}
