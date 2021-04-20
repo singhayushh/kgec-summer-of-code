@@ -275,3 +275,7 @@ footer .wrapper, .links-wrapper {
     margin-top: 1rem;
     margin-right: 10px;
 }
+
+#dashboard .container {
+    padding: 0 6rem;
+}
