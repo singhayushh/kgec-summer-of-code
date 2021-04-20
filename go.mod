@@ -1,4 +1,4 @@
-module github.com/singhayushh/ksoc
+module github.com/singhayushh/kgec-summer-of-code
 
 go 1.15
 
