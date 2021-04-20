@@ -57,28 +57,43 @@ func (g *GitHubAPI) Init() {
 
 // FetchIssueStats ...
 func (g *GitHubAPI) FetchIssueStats() {
-	for _, repo := range repos {
+	count := 0
+	for index, repo := range repos {
+		index = index + 1
 		issues, _, err := g.client.Issues.ListByRepo(g.ctx, "dsckgec", repo, &github.IssueListByRepoOptions{State: "open", Since: startOfTime})
 		if err != nil {
 			continue
 		}
 		for _, issue := range issues {
+			if issue.PullRequestLinks != nil {
+				continue
+			}
+			count++
 			newIssue := Issue{*issue.Title, *issue.HTMLURL, *issue.Comments, repo}
 			g.issues = append(g.issues, newIssue)
+			if count > index*2 {
+				break
+			}
 		}
 	}
 }
 
 // FetchPullStats ...
 func (g *GitHubAPI) FetchPullStats() {
-	for _, repo := range repos {
-		pulls, _, err := g.client.PullRequests.List(g.ctx, "dsckgec", repo, &github.PullRequestListOptions{State: "closed"})
+	count := 0
+	for index, repo := range repos {
+		index = index + 1
+		pulls, _, err := g.client.PullRequests.List(g.ctx, "dsckgec", repo, &github.PullRequestListOptions{State: "all"})
 		if err != nil {
 			continue
 		}
 		for _, pull := range pulls {
+			count++
 			newPull := Pull{*pull.Title, *pull.HTMLURL, User{*pull.User.Login, *pull.User.HTMLURL}, repo}
 			g.pulls = append(g.pulls, newPull)
+			if count > index*2 {
+				break
+			}
 		}
 	}
 }
