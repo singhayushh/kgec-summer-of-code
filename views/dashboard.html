@@ -17,7 +17,7 @@
                 {{end}}
             </div>
         </div>
-        <!--
+        
         <div class="wrapper">
             <h2 style="width: 100%">Pulls</h2>
             <div class="flex-r card-wrapper">
@@ -25,16 +25,17 @@
                 <div class="span-1-of-2">
                     <div class="card">
                         <h4>
-                            {{$j.Title}}
+                            {{$j.Login}}
                         </h4>
-                        <p>dsckgec/{{$j.Repository}}</p>
-                        <a href={{$j.User.HTMLURL}}>{{$j.User.Login}}</a>
+                        {{range $k,$l := $j.Pulls}}
+                        <a href={{$l.URL}} target="_blank">{{$l.Title}}</a>
+                        {{end}}
                     </div>
                 </div>
                 {{end}}
             </div>
         </div>
-        -->
+        
     </div>
 
 </section>
