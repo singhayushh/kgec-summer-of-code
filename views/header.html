@@ -17,8 +17,9 @@
                 </div>
                 <div class="header-inner-right flex-r">
                     <ul class="menu flex-r">
-                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
+                        <li><a href="/projects">Projects</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                         <li class="btn cta"><a href="/contact">Contact</a></li>
                     </ul>
@@ -26,6 +27,7 @@
             </div>
         </header>
 
+        {{if .isHome}}
         <nav class="flex-r">
             <ul class="flex-c side-nav">
                 <li><a href="https://github.com/dsckgec" target="_blank"><i data-feather="github"></i></a></li>
@@ -34,3 +36,4 @@
                 <li><a href="https://facebook.com/dsckgec" target="_blank"><i data-feather="facebook"></i></a></li>
             </ul>
         </nav>
+        {{end}}

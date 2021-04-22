@@ -36,15 +36,13 @@ func (g *GitHubAPI) Refresh(c *gin.Context) {
 // RenderProject ...
 func (g *GitHubAPI) RenderProject(c *gin.Context) {
 	c.HTML(200, "projects.html", gin.H{
-		"title":  "Projects",
-		"isHome": false,
+		"title": "Projects",
 	})
 }
 
 // RenderAbout ...
 func (g *GitHubAPI) RenderAbout(c *gin.Context) {
 	c.HTML(200, "about.html", gin.H{
-		"title":  "About",
-		"isHome": false,
+		"title": "About",
 	})
 }
