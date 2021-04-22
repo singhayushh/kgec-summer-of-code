@@ -18,7 +18,7 @@ type GitHubAPI struct {
 	client *github.Client
 	ctx    context.Context
 	issues []Issue
-	pulls  []Pull
+	pulls  []User
 }
 
 // Issue struct
@@ -33,7 +33,6 @@ type Issue struct {
 type Pull struct {
 	Title      string `json:"title,omitempty"`
 	URL        string `json:"url,omitempty"`
-	User       User   `json:"user,omitempty"`
 	Repository string `json:"repository,omitempty"`
 }
 
@@ -41,6 +40,7 @@ type Pull struct {
 type User struct {
 	Login   string `json:"name,omitempty"`
 	HTMLURL string `json:"url,omitempty"`
+	Pulls   []Pull `json:"user,omitempty"`
 }
 
 // Init ...
@@ -80,7 +80,6 @@ func (g *GitHubAPI) FetchIssueStats() {
 
 // FetchPullStats ...
 func (g *GitHubAPI) FetchPullStats() {
-	count := 0
 	for index, repo := range repos {
 		index = index + 1
 		pulls, _, err := g.client.PullRequests.List(g.ctx, "dsckgec", repo, &github.PullRequestListOptions{State: "all"})
@@ -88,12 +87,28 @@ func (g *GitHubAPI) FetchPullStats() {
 			continue
 		}
 		for _, pull := range pulls {
-			count++
-			newPull := Pull{*pull.Title, *pull.HTMLURL, User{*pull.User.Login, *pull.User.HTMLURL}, repo}
-			g.pulls = append(g.pulls, newPull)
-			if count > index*2 {
-				break
+			newPull := Pull{*pull.Title, *pull.HTMLURL, repo}
+			flag := 0
+			for i := 0; i < len(g.pulls); i++ {
+				user := &g.pulls[i]
+				if user.Login == *pull.User.Login {
+					flag = 1
+					user.addPull(newPull)
+				}
 			}
+			if flag == 0 {
+				newUser := User{}
+				newUser.Login = *pull.User.Login
+				newUser.HTMLURL = *pull.User.HTMLURL
+				newUser.Pulls = newUser.addPull(newPull)
+				g.pulls = append(g.pulls, newUser)
+			}
+
 		}
 	}
+}
+
+func (user *User) addPull(pull Pull) []Pull {
+	user.Pulls = append(user.Pulls, pull)
+	return user.Pulls
 }
