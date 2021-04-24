@@ -275,9 +275,6 @@ footer .wrapper {
 }
 
 @media only screen and (max-width: 750px) {
-  #landing {
-    padding-top: 80px;
-  }
   .row {
     min-height: 0px;
     padding: 1.5rem 0;
