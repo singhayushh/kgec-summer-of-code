@@ -246,6 +246,52 @@ footer .wrapper {
   margin-top: 1rem;
 }
 
+.card {
+  background-color: #292929;
+  border-radius: 3px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  max-width: 325px;
+  text-align: left;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .long-text {
+  font-size: 90%;
+}
+
+.tags {
+  display: flex;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap
+}
+
+.tag {
+  font-size: 90%;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  padding: 0.3rem 1rem;
+  background-color: rgba(0, 255, 255, 0.15);
+  color: cyan;
+}
+
+.default-btn {
+  font-size: 90%;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+}
+
+.projects {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 @media only screen and (max-width: 1160px) {
   .container {
     padding-left: 40px !important;
@@ -275,9 +321,6 @@ footer .wrapper {
 }
 
 @media only screen and (max-width: 750px) {
-  #landing {
-    padding-top: 80px;
-  }
   .row {
     min-height: 0px;
     padding: 1.5rem 0;
