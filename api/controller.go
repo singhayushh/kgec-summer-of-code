@@ -37,6 +37,7 @@ func (g *GitHubAPI) Refresh(c *gin.Context) {
 func (g *GitHubAPI) RenderProject(c *gin.Context) {
 	c.HTML(200, "projects.html", gin.H{
 		"title": "Projects",
+		"button": "View Dashboard",
 	})
 }
 

@@ -1,43 +1,52 @@
 {{template "header.html" .}}
 
 <section id="dashboard">
-    <div class="container">
-        <div class="wrapper">
-            <h2>Issues</h2>
-            <div class="flex-c card-wrapper">
-                {{range $i,$j := .issues}}
-                <div class="card">
-                    <h4>
-                        {{$j.Title}}
-                    </h4>
-                    <p>dsckgec/{{$j.Repository}}</p>
-                    <p>{{$j.Comments}} Comments</p>
-                    <a href={{$j.URL}}>Link</a>
-                </div>
-                {{end}}
-            </div>
-        </div>
-        
-        <div class="wrapper">
-            <h2 style="width: 100%">Pulls</h2>
-            <div class="flex-r card-wrapper">
-                {{range $i,$j := .pulls}}
-                <div class="span-1-of-2">
-                    <div class="card">
-                        <h4>
-                            {{$j.Login}}
-                        </h4>
-                        {{range $k,$l := $j.Pulls}}
-                        <a href={{$l.URL}} target="_blank">{{$l.Title}}</a>
-                        {{end}}
-                    </div>
-                </div>
-                {{end}}
-            </div>
-        </div>
-        
+    <div class="container heading" style="width: 100%">
+        <h1 class="yellow">Latest Issues</h1>
     </div>
-
+    <div class="container">
+        <div class="card-wrapper">
+            {{range $i,$j := .issues}}
+            <a target="_top" href="{{$j.URL}}" class="issue-card">
+                <div class="live-btn"></div>
+                <h5>{{$j.Title}}</h5>
+                <div class="tag">{{$j.Repository}}</div>
+                <p class="light-text">
+                    Comments: <span class="yellow">{{$j.Comments}}</span> since
+                    last fetched <br />Last edited: {{$j.UpdatedAt}}
+                </p>
+            </a>
+            {{end}}
+        </div>
+    </div>
+    <div class="container heading" style="width: 100%">
+        <h1 class="yellow">Latest Pulls</h1>
+    </div>
+    <div class="container">
+        <div class="card-wrapper">
+            {{range $i,$j := .pulls}}
+            <div class="issue-card pulls">
+                <h5 class="short-text">{{$j.Login}}</h5>
+                <ul>
+                    {{range $k,$l := $j.Pulls}}
+                    <li>
+                        <a class="light-text" href="{{$l.URL}}" target="_blank"
+                            >{{$l.Title}}</a
+                        >
+                        <br />
+                    </li>
+                    {{end}}
+                </ul>
+                <a
+                    class="cta"
+                    href="https://github.com/pulls?q=is%3Aopen+is%3Apr+author%3A{{$j.Login}}+archived%3Afalse+"
+                    target="_blank"
+                    >View more</a
+                >
+            </div>
+            {{end}}
+        </div>
+    </div>
 </section>
 
 {{template "footer.html" .}}
