@@ -78,7 +78,19 @@ body {
   border-radius: 3px;
   background-color: var(--google-yellow);
   border: 3px solid var(--google-yellow);
+  transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
+
+
+a.btn{
+  color: var(--main-bg-color) !important;
+}
+
+a.btn:hover{
+  background-color: #fbd46f;
+  border-color: #fbd46f;
+}
+
 
 .wrapper {
   display: flex;
