@@ -79,14 +79,15 @@ body {
   background-color: var(--google-yellow);
   border: 3px solid var(--google-yellow);
   transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 
-a.btn{
+a.btn-cta{
   color: var(--main-bg-color) !important;
 }
 
-a.btn:hover{
+a.btn-cta:hover{
   background-color: #fbd46f;
   border-color: #fbd46f;
 }
@@ -116,7 +117,9 @@ header .container {
 }
 
 .heading {
-  height: 250px;
+  margin-top: 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,14 +269,18 @@ footer .wrapper {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   line-height: 1.5;
 }
 
 #dashboard .card-wrapper {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .pulls ul {
@@ -310,6 +317,13 @@ footer .wrapper {
   background-color: #2d2d2d;
   font-size: 90%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.issue-card ul{
+  flex-grow: 1;
 }
 
 .pulls {
@@ -346,6 +360,11 @@ footer .wrapper {
   background-color: var(--google-green);
 }
 
+.card h4{
+  color: var(--cta-color);
+  font-size: 1.5rem;
+}
+
 .card .long-text {
   font-size: 90%;
 }
@@ -357,7 +376,7 @@ footer .wrapper {
 }
 
 .tag {
-  font-size: 90%;
+  font-size: 70%;
   margin-bottom: 0.5rem;
   border-radius: 3px;
   margin-right: 0.5rem;
@@ -372,6 +391,10 @@ footer .wrapper {
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   color: white;
+}
+
+.default-btn:hover{
+  background-color: rgba(0, 0, 0, 0.705);
 }
 
 .projects {
@@ -413,6 +436,9 @@ footer .wrapper {
     min-height: 0px;
     padding: 1.5rem 0;
   }
+  .card-wrapper{
+    grid-template-columns: 1fr 1fr !important;
+  }
 }
 
 @media only screen and (max-width: 590px) {
@@ -424,5 +450,20 @@ footer .wrapper {
   }
   .long-text, .short-text, li {
     font-size: 18px !important;
+  }
+
+  .card-wrapper{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+
+  header .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
 }
