@@ -2,9 +2,11 @@ package api
 
 import (
 	"context"
+	"log"
 	"os"
 	"time"
 
+	"github.com/andanhm/go-prettytime"
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
 )
@@ -12,6 +14,10 @@ import (
 var repos [15]string = [15]string{"space-missions", "computer-vision-into-reality", "multipurpose-chatbot", "heart-saver", "hello-ml", "passman", "androlearn", "resumie", "cleanurge-mcu", "cleanurge-backend", "libraryly", "sac-kgec-web", "dsck-website", "cleanurge-app", "kgec-summer-of-code"}
 
 var startOfTime time.Time = time.Date(2021, time.Month(4), 10, 0, 0, 0, 0, time.UTC)
+
+const (
+	layout = "2006-01-02T15:04:05Z"
+)
 
 // GitHubAPI .. stores github api and context
 type GitHubAPI struct {
@@ -27,6 +33,7 @@ type Issue struct {
 	URL        string `json:"url,omitempty"`
 	Comments   int    `json:"comments,omitempty"`
 	Repository string `json:"repository,omitempty"`
+	UpdatedAt  string `json:"updated_at,omitempty"`
 }
 
 // Pull struct
@@ -69,7 +76,11 @@ func (g *GitHubAPI) FetchIssueStats() {
 				continue
 			}
 			count++
-			newIssue := Issue{*issue.Title, *issue.HTMLURL, *issue.Comments, repo}
+			t, err := time.Parse(layout, (*issue.UpdatedAt).Format(layout))
+			if err != nil {
+				log.Fatal(err)
+			}
+			newIssue := Issue{*issue.Title, *issue.HTMLURL, *issue.Comments, repo, prettytime.Format(t)}
 			g.issues = append(g.issues, newIssue)
 			if count > index*2 {
 				break
@@ -109,6 +120,9 @@ func (g *GitHubAPI) FetchPullStats() {
 }
 
 func (user *User) addPull(pull Pull) []Pull {
+	if len(user.Pulls) > 2 {
+		return user.Pulls
+	}
 	user.Pulls = append(user.Pulls, pull)
 	return user.Pulls
 }

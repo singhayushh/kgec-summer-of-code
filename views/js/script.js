@@ -3,7 +3,7 @@ $(window).on("scroll", function () {
     if (stop > $("header").height()) {
         $("header").css({
             position: "fixed",
-            "background-color": "#2e2e2e"
+            "background-color": "#121212"
         });
     } else {
         $("header").css({

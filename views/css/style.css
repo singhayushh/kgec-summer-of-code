@@ -7,7 +7,7 @@
 }
 
 :root {
-  --main-bg-color: #2e2e2e;
+  --main-bg-color: #121212;
   --main-wrapper-color: #101c34;
   --main-text-color: #ffffff;
   --shadow-color: #ebecee;
@@ -52,7 +52,6 @@ a:active {
 
 html,
 body {
-  height: 100%;
   width: 100%;
   font-size: 18px;
   line-height: 1.2;
@@ -104,6 +103,13 @@ header .container {
   justify-content: space-between;
 }
 
+.heading {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 section {
   padding: 60px 0px;
   width: 100%;
@@ -123,18 +129,6 @@ section {
   left: 0;
   min-height: 620px;
   width: 100%;
-  -webkit-mask-image: radial-gradient(
-    white 0%,
-    white 30%,
-    transparent 80%,
-    transparent
-  );
-  mask-image: radial-gradient(
-    white 0%,
-    white 30%,
-    transparent 80%,
-    transparent
-  );
   overflow: hidden;
 }
 
@@ -162,8 +156,8 @@ h2 {
   margin: 1.5rem auto;
 }
 
-span, .yellow {
-  color: var(--google-green);
+.yellow {
+  color: var(--google-yellow);
 }
 
 .red {
@@ -174,7 +168,7 @@ span, .yellow {
   color: var(--google-green);
 }
 
-.blue {
+span, .blue {
     color: var(--google-blue);
 }
 
@@ -183,13 +177,17 @@ span, .yellow {
   position: absolute;
   top: 20%;
   right: -100px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .img-left {
   top: 50%;
   left: -100px;
-  z-index: -1;
+  z-index: 1;
+}
+
+div {
+  z-index: 2;
 }
 
 .row {
@@ -247,7 +245,7 @@ footer .wrapper {
 }
 
 .card {
-  background-color: #292929;
+  background-color: #232323;
   border-radius: 3px;
   margin-right: 1rem;
   margin-bottom: 1rem;
@@ -256,6 +254,84 @@ footer .wrapper {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  line-height: 1.5;
+}
+
+#dashboard .card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pulls ul {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.pulls ul li {
+  list-style: square;
+  margin-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cta {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 90%;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pulls h5 {
+  margin: 0 !important;
+}
+
+.issue-card {
+  margin: 0.4rem;
+  padding: 1.5rem 1rem;
+  max-width: 325px;
+  width: 100%;
+  float: left;
+  background-color: #2d2d2d;
+  font-size: 90%;
+  position: relative;
+}
+
+.pulls {
+  max-width: 500px;
+}
+
+.issue-card .tag {
+  width: max-content;
+  border-radius: 500px;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.light-text {
+  line-height: 1.5;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.issue-card h5 {
+  font-size: 100%;
+  max-width: calc(100% - 2rem);
+}
+
+.live-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--google-green);
 }
 
 .card .long-text {
@@ -288,7 +364,7 @@ footer .wrapper {
 
 .projects {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 

@@ -18,6 +18,13 @@
             <a class="logo" href="">
                 <img src="./img/ksoc-logo.png" alt="KSOC">
             </a>
-            <div class="btn">View Projects</div>
+            <div class="btn">
+                {{if .button}}
+                View Dashboard
+                {{end}}
+                {{if not .button}}
+                View Projects
+                {{end}}
+            </div>
         </div>
     </header>
