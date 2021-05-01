@@ -92,6 +92,13 @@ a.btn-cta:hover{
   border-color: #fbd46f;
 }
 
+a.btn-cta.small{
+  display: none;
+}
+a.btn-cta.big{
+  display: inline-block;
+}
+
 
 .wrapper {
   display: flex;
@@ -134,6 +141,7 @@ section {
 }
 
 .front {
+  padding: 100px 0px 60px 0px;
   display: flex;
   align-items: flex-end;
 }
@@ -151,6 +159,11 @@ section {
 #register .wrapper {
   flex-direction: column;
   text-align: center;
+}
+
+#register .container {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -198,13 +211,13 @@ span, .blue {
   position: absolute;
   top: 20%;
   right: -100px;
-  z-index: 1;
+  z-index: 0;
 }
 
 .img-left {
   top: 50%;
   left: -100px;
-  z-index: 1;
+  z-index: 0;
 }
 
 div {
@@ -467,9 +480,44 @@ footer .wrapper {
   }
 
   header .container{
-    flex-direction: column;
+    /* flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: center; */
+    padding: 10px;
+  }
+
+  .logo img{
+    height: 3rem;
+  }
+
+  a.btn-cta.small{
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    position: relative;
+  }
+  a.btn-cta.small .tooltip{
+    position: absolute;
+    background-color: whitesmoke;
+    font-size: small;
+    width: max-content;
+    padding: 5px 10px;
+    right: 0px;
+    bottom: -35px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  a.btn-cta.small:hover, a.btn-cta.small:focus .tooltip{
+    opacity: 1;
+  }
+  a.btn-cta.big{
+    display: none;
+  }
+  .links{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .links .link {
+    width: 100%;
   }
 }
