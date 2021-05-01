@@ -129,22 +129,28 @@ section {
   padding: 60px 0px;
   width: 100%;
   position: relative;
-  min-height: 620px;
+  min-height: 650px;
   overflow: hidden;
 }
 
+.front {
+  display: flex;
+  align-items: flex-end;
+}
+
 #landing {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  min-height: 620px;
+  height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+#register .wrapper {
+  flex-direction: column;
+  text-align: center;
 }
 
 h1 {
