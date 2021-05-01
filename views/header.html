@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +13,23 @@
     <title>{{.title}}</title>
 
 </head>
+
 <body>
     <header>
         <div class="container">
-            <a class="logo" href="">
+            <a class="logo" href="/">
                 <img src="./img/ksoc-logo.png" alt="KSOC">
             </a>
             {{if .button}}
-                <a class="btn btn-cta" href="/dashboard">
-                    View Dashboard
-                </a>
+            <a class="btn btn-cta" href="/dashboard">
+                View Dashboard
+            </a>
             {{end}}
             {{if not .button}}
-                <a class="btn btn-cta" href="/projects">  
-                  View Projects
-                </a>
+            <a class="btn btn-cta" href="/projects">
+                View Projects
+            </a>
             {{end}}
-            </div>
+        </div>
         </div>
     </header>
