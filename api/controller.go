@@ -21,6 +21,13 @@ func (g *GitHubAPI) RenderDashboard(c *gin.Context) {
 	})
 }
 
+func (g *GitHubAPI) GetData(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"pulls": g.pulls,
+		"issues": g.issues,
+	})
+}
+
 // Refresh ...
 func (g *GitHubAPI) Refresh(c *gin.Context) {
 	g.issues = g.issues[:0]

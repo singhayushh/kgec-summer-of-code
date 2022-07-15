@@ -24,7 +24,7 @@ func (server *Server) Run(port string) {
 	server.Router.Static("/img", "views/img")
 	server.Router.Static("/js", "views/js")
 
-	fmt.Printf(`KSOC server running on port :%s!`, port)
+	fmt.Printf(`KSOC server running on http://localhost:%s!`, port)
 	fmt.Println()
 	server.Router.Run(":" + port)
 }
