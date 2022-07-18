@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 // Server struct to store the gin Engine
@@ -23,6 +24,9 @@ func (server *Server) Run(port string) {
 	server.Router.Static("/css", "views/css")
 	server.Router.Static("/img", "views/img")
 	server.Router.Static("/js", "views/js")
+
+	// Enable CORS
+	server.Router.Use(cors.Default())
 
 	fmt.Printf(`KSOC server running on http://localhost:%s!`, port)
 	fmt.Println()
