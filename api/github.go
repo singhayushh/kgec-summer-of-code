@@ -41,6 +41,7 @@ type Pull struct {
 	Title      string `json:"title,omitempty"`
 	URL        string `json:"url,omitempty"`
 	Repository string `json:"repository,omitempty"`
+	Labels		[]*github.Label `json:"label"`
 }
 
 // User struct
@@ -97,8 +98,9 @@ func (g *GitHubAPI) FetchPullStats() {
 		if err != nil {
 			continue
 		}
+
 		for _, pull := range pulls {
-			newPull := Pull{*pull.Title, *pull.HTMLURL, repo}
+			newPull := Pull{*pull.Title, *pull.HTMLURL, repo, pull.Labels}
 			flag := 0
 			for i := 0; i < len(g.pulls); i++ {
 				user := &g.pulls[i]
