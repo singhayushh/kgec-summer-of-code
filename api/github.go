@@ -13,7 +13,7 @@ import (
 
 var repos [15]string = [15]string{"space-missions", "computer-vision-into-reality", "multipurpose-chatbot", "heart-saver", "hello-ml", "passman", "androlearn", "resumie", "cleanurge-mcu", "cleanurge-backend", "libraryly", "sac-kgec-web", "dsck-website", "cleanurge-app", "kgec-summer-of-code"}
 
-var startOfTime time.Time = time.Date(2021, time.Month(4), 10, 0, 0, 0, 0, time.UTC)
+var startOfTime time.Time = time.Date(2022, time.Month(7), 10, 0, 0, 0, 0, time.UTC)
 
 const (
 	layout = "2006-01-02T15:04:05Z"
@@ -41,14 +41,14 @@ type Pull struct {
 	Title      string `json:"title,omitempty"`
 	URL        string `json:"url,omitempty"`
 	Repository string `json:"repository,omitempty"`
-	Labels		[]*github.Label `json:"label"`
 }
 
 // User struct
 type User struct {
 	Login   string `json:"name,omitempty"`
 	HTMLURL string `json:"url,omitempty"`
-	Pulls   []Pull `json:"user,omitempty"`
+	Pulls   []Pull `json:"pulls,omitempty"`
+	Points  uint64 `json:"points"`
 }
 
 // Init ...
@@ -92,21 +92,38 @@ func (g *GitHubAPI) FetchIssueStats() {
 
 // FetchPullStats ...
 func (g *GitHubAPI) FetchPullStats() {
-	for index, repo := range repos {
-		index = index + 1
+	for _, repo := range repos {
 		pulls, _, err := g.client.PullRequests.List(g.ctx, "dsckgec", repo, &github.PullRequestListOptions{State: "all"})
 		if err != nil {
 			continue
 		}
 
 		for _, pull := range pulls {
-			newPull := Pull{*pull.Title, *pull.HTMLURL, repo, pull.Labels}
+			if (*pull.CreatedAt).Before(startOfTime) || pull.MergedAt == nil {
+				continue
+			}
+			newPull := Pull{*pull.Title, *pull.HTMLURL, repo}
 			flag := 0
 			for i := 0; i < len(g.pulls); i++ {
 				user := &g.pulls[i]
 				if user.Login == *pull.User.Login {
 					flag = 1
 					user.addPull(newPull)
+					if len(pull.Labels) > 0 {
+						for j := 0; j < len(pull.Labels); j++ {
+
+							if *pull.Labels[j].Name == "easy" {
+								user.Points += 100
+								break
+							} else if *pull.Labels[j].Name == "medium" {
+								user.Points += 200
+								break
+							} else if *pull.Labels[j].Name == "hard" {
+								user.Points += 300
+								break
+							}
+						}
+					}
 				}
 			}
 			if flag == 0 {
@@ -114,6 +131,22 @@ func (g *GitHubAPI) FetchPullStats() {
 				newUser.Login = *pull.User.Login
 				newUser.HTMLURL = *pull.User.HTMLURL
 				newUser.Pulls = newUser.addPull(newPull)
+				newUser.Points = 0
+				if len(pull.Labels) > 0 {
+					for j := 0; j < len(pull.Labels); j++ {
+
+						if *pull.Labels[j].Name == "easy" {
+							newUser.Points += 100
+							break
+						} else if *pull.Labels[j].Name == "medium" {
+							newUser.Points += 200
+							break
+						} else if *pull.Labels[j].Name == "hard" {
+							newUser.Points += 300
+							break
+						}
+					}
+				}
 				g.pulls = append(g.pulls, newUser)
 			}
 
