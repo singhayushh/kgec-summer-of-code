@@ -1,0 +1,128 @@
+:root {
+  --main-bg-color: #000f1d;
+  --main-wrapper-color: #091921;
+  --main-text-color: #ffffff;
+  --shadow-color: #ebecee;
+  --para-color: #c4c4c4;
+  --cta-color: #fbbc05;
+  --border-color: rgba(45, 45, 45, 0.1);
+  --google-red: #ea4335;
+  --google-red-bg: rgba(234, 67, 53, 0.1);
+  --google-blue: #4285f4;
+  --google-blue-bg: rgba(66, 133, 244, 0.1);
+  --google-yellow: #fbbc05;
+  --google-yellow-bg: rgba(251, 188, 5, 0.1);
+  --google-green: #34a853;
+  --google-green-bg: rgba(52, 168, 83, 0.1);
+
+  --neon-blue: #00b0e0;
+  --neon-blue-dark: rgba(0, 159, 238, 0.15);
+  --neon-green: #00e4e4;
+  --neon-green-dark: rgba(0, 255, 255, 0.15);
+
+  --blue-deep-dark: #182f57;
+  --blue-mid: #305fb0;
+  --blue-light: #4285f4;
+  --pale-blue: #669fff;
+
+  --spacing-m: 40px;
+  --spacing-l: 60px;
+}
+
+#faq .wrapper {
+  flex-direction: column;
+}
+
+#faq h1 {
+  color: var(--neon-green);
+  text-align: center;
+}
+
+.accordion {
+  margin-block: 27px;
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid var(--para-color);
+}
+
+.accordion .accordion-title {
+  color: var(--para-color);
+}
+
+.accordion button {
+  font-family: monospace;
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: var(--main-text-color);
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--google-blue);
+  border-radius: 22px;
+}
+
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 4px;
+  width: 10px;
+  height: 2px;
+  background: var(--google-blue);
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 8px;
+  width: 2px;
+  height: 10px;
+  background: var(--google-blue);
+}
+
+.accordion button[aria-expanded="true"] {
+  color: var(--neon-blue);
+}
+.accordion button[aria-expanded="true"] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded="true"] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
+}

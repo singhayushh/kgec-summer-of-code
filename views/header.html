@@ -11,14 +11,35 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/bubbles.css" />
+    <link rel="stylesheet" href="./css/faq.css" />
+    <link rel="stylesheet" href="./css/leaderboard.css" />
     <title>{{.title}}</title>
   </head>
 
   <body>
+    <div class="navbar">
+      <div class="nav-links">
+        <div class="nav-link-item">
+          <a href="/"><i class="fa-solid fa-house"></i></a>
+        </div>
+        <div class="nav-link-item">
+          <a href="/#timeline"><i class="fa-solid fa-timeline"></i></a>
+        </div>
+        <div class="nav-link-item">
+          <a href="/projects"><i class="fa-solid fa-file-code"></i></a>
+        </div>
+        <div class="nav-link-item">
+          <a href="/dashboard"><i class="fa-solid fa-table-columns"></i></a>
+        </div>
+        <div class="nav-link-item">
+          <a href="/leaderboard"><i class="fa-solid fa-people-group"></i></a>
+        </div>
+      </div>
+    </div>
     <header>
       <div class="container">
         <a class="logo" href="/">
-          <img src="./img/ksoc-logo.png" alt="KSOC" />
+          <img src="./img/ksoc-new-logo.png" alt="KSOC" />
         </a>
         {{if .button}}
         <a class="btn btn-cta big" href="/dashboard"> View Dashboard </a>
