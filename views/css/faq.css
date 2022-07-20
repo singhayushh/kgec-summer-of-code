@@ -1,6 +1,6 @@
 :root {
   --main-bg-color: #000f1d;
-  --main-wrapper-color: #091921;
+  --main-wrapper-color: #07141a;
   --main-text-color: #ffffff;
   --shadow-color: #ebecee;
   --para-color: #c4c4c4;
@@ -47,7 +47,7 @@
 }
 
 .accordion .accordion-title {
-  color: var(--para-color);
+  color: var(--shadow-color);
 }
 
 .accordion button {
@@ -125,4 +125,5 @@
   font-size: 1rem;
   font-weight: 300;
   margin: 2em 0;
+  color: var(--para-color);
 }
