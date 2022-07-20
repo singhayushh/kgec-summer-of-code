@@ -86,10 +86,11 @@
 .github-handles {
   padding: 5px 10px;
   cursor: pointer;
-  background-color: var(--blue-light);
-  color: black;
+  background-color: var(--neon-blue);
+  color: var(--main-bg-color);
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 2px;
+  font-weight: 600;
 }
 
 .leaderboard-card {
