@@ -1,0 +1,134 @@
+{{template "header.html" .}}
+
+<section class="main-content" id="leaderboard">
+  <div class="container">
+    <div class="wrapper">
+      <h1 class="text-center ksoc-heading">ksoc_leaderboard</h1>
+      <h3 class="text-center ksoc-sub-heading">Check your rank here!</h3>
+      <p class="text-center ksoc-sub-heading">
+        <!-- Last updated on : <i class="ksoc-last-update">Monday</i> -->
+      </p>
+      <br />
+      <br />
+      <div class="leaderboard-row">
+        <div class="col-sm-4">
+          <div class="leaderboard-card leaderboard-card--second">
+            <div class="leaderboard-card__top">
+              <h3 class="text-center">
+                Rank: 2
+                <br />
+                <span class="points-box">Points: {{(index .pulls 1).Points}} </span>
+              </h3>
+            </div>
+            <div class="leaderboard-card__body">
+              <div class="text-center">
+                <img
+                  src="{{(index .pulls 1).AvatarURL}}"
+                  class="circle-img mb-2"
+                  alt="User Img"
+                />
+                <h5 class="mb-0">{{(index .pulls 1).Name}}</h5>
+                <p class="text-muted mb-0">KGEC</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="github-handles">{{(index .pulls 1).Login}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="leaderboard-card leaderboard-card--first">
+            <div class="leaderboard-card__top">
+              <h3 class="text-center">
+                Rank: 1
+                <br />
+                <span class="points-box">Points: {{(index .pulls 0).Points}}</span>
+              </h3>
+            </div>
+            <div class="leaderboard-card__body">
+              <div class="text-center">
+                <img
+                  src="{{(index .pulls 0).AvatarURL}}"
+                  class="circle-img mb-2"
+                  alt="User Img"
+                />
+                <h5 class="mb-0">{{ (index .pulls 0).Name}}</h5>
+                <p class="text-muted mb-0">KGEC</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="github-handles">{{(index .pulls 0).Login}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="leaderboard-card leaderboard-card--third">
+            <div class="leaderboard-card__top">
+              <h3 class="text-center">
+                Rank: 3
+                <br />
+                <span class="points-box">Points: {{(index .pulls 2).Points}}</span>
+              </h3>
+            </div>
+            <div class="leaderboard-card__body">
+              <div class="text-center">
+                <img
+                  src="{{(index .pulls 2).AvatarURL}}"
+                  class="circle-img mb-2"
+                  alt="User Img"
+                />
+                <h5 class="mb-0">{{(index .pulls 2).Name}}</h5>
+                <p class="text-muted mb-0">KGEC</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="github-handles">{{(index .pulls 2).Login}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <h4 class="table-heading">All Participants</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Participant</th>
+            <th>College</th>
+            <th>Rank</th>
+            <th>Points</th>
+            <th>Github</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $i,$j := .pulls}}
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                  src="{{$j.AvatarURL}}"
+                  class="circle-img circle-img--small mr-2"
+                  alt="User Img"
+                />
+                <div class="user-info__basic">
+                  <h5 class="mb-0">{{$j.Name}}</h5>
+                </div>
+              </div>
+            </td>
+            <td>KGEC</td>
+            <td>
+              <div class="d-flex align-items-baseline">
+                <!-- <h4 class="mr-1">253</h4> -->
+                <div class="mr-1 participant-rank">{{len (printf "a%*s" $i "")}}</div>
+              </div>
+            </td>
+            <td>{{$j.Points}}</td>
+            <td><span class="github-handles">{{$j.Login}}</span></td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{{template "footer.html" .}}
