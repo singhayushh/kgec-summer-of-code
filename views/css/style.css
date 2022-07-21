@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,800");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,600,800");
 
 *,
 *::before,
@@ -68,9 +68,9 @@ a:active {
 html,
 body {
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.2;
-  font-family: monospace !important;
+  font-family: 'Poppins', monospace;
   color: var(--main-text-color);
   background-color: var(--main-wrapper-color);
   position: relative;
@@ -135,11 +135,11 @@ a.btn-cta.big {
 }
 
 .ksoc-title {
-  font-size: 140px;
+  font-size: 120px;
   padding-block: 2rem;
   font-weight: 900;
   display: flex;
-  gap: 32px;
+  gap: 24px;
   line-height: 1;
   position: relative;
 }
@@ -241,11 +241,11 @@ section {
 }
 
 h1 {
-  font-size: 350%;
+  font-size: 325%;
 }
 
 h2 {
-  font-size: 300%;
+  font-size: 270%;
 }
 
 p,
