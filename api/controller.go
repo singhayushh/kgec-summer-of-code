@@ -21,9 +21,18 @@ func (g *GitHubAPI) RenderDashboard(c *gin.Context) {
 	})
 }
 
+// RenderLeaderboard ...
+func (g *GitHubAPI) RenderLeaderboard(c *gin.Context) {
+	c.HTML(200, "leaderboard.html", gin.H{
+		"title":  "Leaderboard | KGEC Summer of Code 2021",
+		"issues": g.issues,
+		"pulls":  g.pulls,
+	})
+}
+
 func (g *GitHubAPI) GetData(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"pulls": g.pulls,
+		"pulls":  g.pulls,
 		"issues": g.issues,
 	})
 }
@@ -43,7 +52,7 @@ func (g *GitHubAPI) Refresh(c *gin.Context) {
 // RenderProject ...
 func (g *GitHubAPI) RenderProject(c *gin.Context) {
 	c.HTML(200, "projects.html", gin.H{
-		"title": "Projects",
+		"title":  "Projects",
 		"button": "View Dashboard",
 	})
 }
