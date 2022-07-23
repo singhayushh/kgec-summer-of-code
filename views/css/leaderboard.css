@@ -29,6 +29,10 @@
   --spacing-l: 60px;
 }
 
+/* #leaderboard .container {
+  overflow-x: hidden;
+} */
+
 #leaderboard .wrapper {
   flex-direction: column;
   width: 100%;
@@ -84,6 +88,7 @@
 }
 
 .github-handles {
+  width: max-content;
   padding: 5px 10px;
   cursor: pointer;
   background-color: var(--neon-blue);
@@ -105,6 +110,13 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(6px);
   color: var(--shadow-color);
+}
+
+.leaderboard-card .d-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .leaderboard-card.leaderboard-card--first {
@@ -154,6 +166,14 @@ img.circle-img.circle-img--small {
   height: 35px;
   width: 35px;
   border-radius: 35px;
+}
+
+.leaderboard-table-container {
+  width: 100%;
+}
+
+.leaderboard-table-wrapper {
+  width: 100%;
 }
 
 .table-heading {
@@ -208,9 +228,9 @@ img.circle-img.circle-img--small {
   text-align: center;
 }
 
-.table tbody tr {
+/* .table tbody tr {
   border-bottom: 1px solid var(--blue-light);
-}
+} */
 
 /* .table tbody tr td {
   background: #fff;
@@ -224,14 +244,39 @@ img.circle-img.circle-img--small {
   border-radius: 0 5px 5px 0;
 }
 
-@media only screen and (max-width: 767px) {
-  table thead :where(th:nth-child(3), th:nth-child(4), th:nth-child(5)),
-  table tbody tr :where(td:nth-child(3), td:nth-child(4), td:nth-child(5)) {
-    display: none;
+@media only screen and (max-width: 768px) {
+  .leaderboard-row {
+    grid-template-columns: auto;
+  }
+  .leaderboard-card {
+    max-width: 300px;
+    margin: auto;
+  }
+  .leaderboard-card.leaderboard-card--first {
+    margin-top: 0;
   }
 
-  .leaderboard-card.leaderboard-card--first,
   .leaderboard-card.leaderboard-card--second {
-    transform: scale(1);
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .leaderboard-table-container {
+    overflow-x: hidden;
+  }
+  .leaderboard-table-wrapper {
+    overflow-x: scroll;
+  }
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+  .table td *,
+  .github-handles {
+    font-size: 14px;
+  }
+  .github-handles {
+    padding: 6px;
   }
 }

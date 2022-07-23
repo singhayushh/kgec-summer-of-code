@@ -17,7 +17,9 @@
               <h3 class="text-center">
                 Rank: 2
                 <br />
-                <span class="points-box">Points: {{(index .pulls 1).Points}} </span>
+                <span class="points-box"
+                  >Points: {{(index .pulls 1).Points}}
+                </span>
               </h3>
             </div>
             <div class="leaderboard-card__body">
@@ -30,7 +32,14 @@
                 <h5 class="mb-0">{{(index .pulls 1).Name}}</h5>
                 <p class="text-muted mb-0">KGEC</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <span class="github-handles">{{(index .pulls 1).Login}}</span>
+                  <a
+                    href="https://github.com/{{(index .pulls 1).Login}}"
+                    class="github-handles"
+                    >{{(index .pulls 1).Login}}</a
+                  >
+                  <button id="modal-btn" class="modal-btn button">
+                    View PRs
+                  </button>
                 </div>
               </div>
             </div>
@@ -42,7 +51,9 @@
               <h3 class="text-center">
                 Rank: 1
                 <br />
-                <span class="points-box">Points: {{(index .pulls 0).Points}}</span>
+                <span class="points-box"
+                  >Points: {{(index .pulls 0).Points}}</span
+                >
               </h3>
             </div>
             <div class="leaderboard-card__body">
@@ -55,7 +66,14 @@
                 <h5 class="mb-0">{{ (index .pulls 0).Name}}</h5>
                 <p class="text-muted mb-0">KGEC</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <span class="github-handles">{{(index .pulls 0).Login}}</span>
+                  <a
+                    href="https://github.com/{{(index .pulls 0).Login}}"
+                    class="github-handles"
+                    >{{(index .pulls 0).Login}}</a
+                  >
+                  <button id="modal-btn" class="modal-btn button">
+                    View PRs
+                  </button>
                 </div>
               </div>
             </div>
@@ -67,7 +85,9 @@
               <h3 class="text-center">
                 Rank: 3
                 <br />
-                <span class="points-box">Points: {{(index .pulls 2).Points}}</span>
+                <span class="points-box"
+                  >Points: {{(index .pulls 2).Points}}</span
+                >
               </h3>
             </div>
             <div class="leaderboard-card__body">
@@ -80,7 +100,12 @@
                 <h5 class="mb-0">{{(index .pulls 2).Name}}</h5>
                 <p class="text-muted mb-0">KGEC</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <span class="github-handles">{{(index .pulls 2).Login}}</span>
+                  <a
+                    href="https://github.com/{{(index .pulls 2).Login}}"
+                    class="github-handles"
+                    >{{(index .pulls 2).Login}}</a
+                  >
+                  <button class="modal-btn button">View PRs</button>
                 </div>
               </div>
             </div>
@@ -89,44 +114,110 @@
       </div>
       <br /><br />
       <h4 class="table-heading">All Participants</h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Participant</th>
-            <th>College</th>
-            <th>Rank</th>
-            <th>Points</th>
-            <th>Github</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{range $i,$j := .pulls}}
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img
-                  src="{{$j.AvatarURL}}"
-                  class="circle-img circle-img--small mr-2"
-                  alt="User Img"
-                />
-                <div class="user-info__basic">
-                  <h5 class="mb-0">{{$j.Name}}</h5>
-                </div>
-              </div>
-            </td>
-            <td>KGEC</td>
-            <td>
-              <div class="d-flex align-items-baseline">
-                <!-- <h4 class="mr-1">253</h4> -->
-                <div class="mr-1 participant-rank">{{len (printf "a%*s" $i "")}}</div>
-              </div>
-            </td>
-            <td>{{$j.Points}}</td>
-            <td><span class="github-handles">{{$j.Login}}</span></td>
-          </tr>
-          {{end}}
-        </tbody>
-      </table>
+      <div class="leaderboard-table-container">
+        <div class="leaderboard-table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Participant</th>
+                <th>College</th>
+                <th>Rank</th>
+                <th>Points</th>
+                <th>Github</th>
+                <th>View PRs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range $i,$j := .pulls}}
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="{{$j.AvatarURL}}"
+                      class="circle-img circle-img--small mr-2"
+                      alt="User Img"
+                    />
+                    <div class="user-info__basic">
+                      <h5 class="mb-0">{{$j.Name}}</h5>
+                    </div>
+                  </div>
+                </td>
+                <td>KGEC</td>
+                <td>
+                  <div class="d-flex align-items-baseline">
+                    <!-- <h4 class="mr-1">253</h4> -->
+                    <div class="mr-1 participant-rank">
+                      {{len (printf "a%*s" $i "")}}
+                    </div>
+                  </div>
+                </td>
+                <td>{{$j.Points}}</td>
+                <td><a href="" class="github-handles">{{$j.Login}}</a></td>
+                <td>
+                  <button class="modal-btn button">View PRs</button>
+                </td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="my-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Name : Random person</h2>
+        <h3>Total Points : 120</h3>
+        <h3>Total PR Counts : 5</h3>
+
+        <h3>PR Links :</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-list-items">
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+          <a class="modal-li" href="https://github.com/dsckgec/taskify/pull">
+            <p>https://github.com/dsckgec/taskify/pull</p>
+            <p>Difficulty: medium</p>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
