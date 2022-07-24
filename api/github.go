@@ -2,6 +2,7 @@ package api
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"sort"
@@ -98,6 +99,7 @@ func (g *GitHubAPI) FetchIssueStats() {
 			}
 		}
 	}
+	fmt.Println(g.issues)
 }
 
 // FetchPullStats ...
