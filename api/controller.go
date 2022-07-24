@@ -15,13 +15,13 @@ var projects = []Repo{
 	{
 		Name:        "Parkify",
 		Url:         "​​https://github.com/DSCKGEC/parkify",
-		Description: "Hassle-free way to book your parking space with easy cancellations and timeline extensions",
+		Description: "Hassle-free way to book your parking space with easy cancellations and timeline extensions.",
 		Tags:        []string{"html", "css", "javascript", "node-js", "express", "mongodb", "bootstrap"},
 	},
 	{
 		Name:        "Libraryly",
 		Url:         "​​https://github.com/DSCKGEC/Libraryly",
-		Description: "A software solution to handle the primary functions of a library like managing books, members and issues",
+		Description: "A software solution to handle the primary functions of a library like managing books, members and issues.",
 		Tags:        []string{"html", "css", "javascript", "node-js", "express", "mongodb"},
 	},
 	{
@@ -39,7 +39,7 @@ var projects = []Repo{
 	{
 		Name:        "Leucos",
 		Url:         "​​https://github.com/DSCKGEC/Leucos",
-		Description: "Real-time chatting application within private rooms, from anywhere in the world",
+		Description: "Real-time chatting application within private rooms, from anywhere in the world.",
 		Tags:        []string{"html", "css", "javascript", "node-js", "express", "mongodb"},
 	},
 	{
@@ -57,13 +57,13 @@ var projects = []Repo{
 	{
 		Name:        "C-Coins",
 		Url:         "​​https://github.com/DSCKGEC/C-Coins",
-		Description: "Defining the basic behaviour of Blockchains and Web-2.0 imitation",
+		Description: "Defining the basic behaviour of Blockchains and Web-2.0 imitation.",
 		Tags:        []string{"python"},
 	},
 	{
 		Name:        "kitkat.virus",
 		Url:         "​​https://github.com/DSCKGEC/kitkat.virus",
-		Description: "A simple python based keylogger",
+		Description: "A simple python based keylogger.",
 		Tags:        []string{"python"},
 	},
 	{
@@ -75,19 +75,19 @@ var projects = []Repo{
 	{
 		Name:        "Learn-Machine-Learn",
 		Url:         "​​https://github.com/DSCKGEC/Learn-Machine-Learn",
-		Description: "A machine learning repository to demonstrate regression and classification problems",
+		Description: "A machine learning repository to demonstrate regression and classification problems.",
 		Tags:        []string{"jupyter notebook"},
 	},
 	{
 		Name:        "Text Recognition",
 		Url:         "​​https://github.com/DSCKGEC/OCR-TextRecognition",
-		Description: "Recognizes text from any image and prints them",
+		Description: "Recognizes text from any image and prints them.",
 		Tags:        []string{"python"},
 	},
 	{
 		Name:        "Movie Recommendation",
 		Url:         "​​https://github.com/DSCKGEC/MovieRecommendationSystem",
-		Description: "A Movie Recommendation System along with Data Analysis and Data Visualization and Revenue Prediction Model",
+		Description: "A Movie Recommendation System along with Data Analysis and Data Visualization and Revenue Prediction Model.",
 		Tags:        []string{"jupyter notebook"},
 	},
 	{
@@ -105,19 +105,19 @@ var projects = []Repo{
 	{
 		Name:        "Health Tracker App",
 		Url:         "​https://github.com/DSCKGEC/Health-Tracker-App",
-		Description: "Health Tracker is your one stop solution to keep your heath related information in a secured way",
+		Description: "Health Tracker is your one stop solution to keep your heath related information in a secured way.",
 		Tags:        []string{"dart", "c++", "cmake", "html", "swift", "c"},
 	},
 	{
 		Name:        "Galleriz",
 		Url:         "​​https://github.com/DSCKGEC/samsung-gallery-clone",
-		Description: "A beautiful and functional gallery app for smartphones",
+		Description: "A beautiful and functional gallery app for smartphones.",
 		Tags:        []string{"javascript", "java", "objective-c", "ruby", "starlark"},
 	},
 	{
 		Name:        "WallX",
 		Url:         "​​https://github.com/DSCKGEC/flutter-wallx-wallpaperApp",
-		Description: "A cool wallpaper app for smartphones",
+		Description: "A cool wallpaper app for smartphones.",
 		Tags:        []string{"dart", "html", "swift"},
 	},
 }

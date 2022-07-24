@@ -469,7 +469,7 @@ footer h4 {
 }
 
 .pulls ul {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -483,7 +483,7 @@ footer h4 {
 }
 
 .cta {
-  margin-left: 0.5rem;
+  margin-left: 8px;
   font-weight: 600;
   font-size: 90%;
   color: rgba(255, 255, 255, 0.7);
@@ -491,6 +491,7 @@ footer h4 {
 
 .pulls h5 {
   margin: 0 !important;
+  margin-left: 8px !important;
 }
 
 .issue-card {
@@ -529,9 +530,9 @@ footer h4 {
   flex-grow: 1;
 }
 
-.pulls {
-  max-width: 500px;
-}
+/* .pulls {
+  gap: 16px;
+} */
 
 .issue-card .tag {
   width: max-content;
@@ -769,6 +770,9 @@ footer h4 {
   .card-wrapper {
     grid-template-columns: 1fr 1fr !important;
   }
+  .card .long-text {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 624px) {
@@ -790,6 +794,9 @@ footer h4 {
   h2 {
     font-size: 24px;
   }
+  .h2-28 {
+    font-size: 30px;
+  }
   .long-text,
   .short-text,
   li {
@@ -808,7 +815,7 @@ footer h4 {
     /* flex-direction: column;
     justify-content: center;
     align-items: center; */
-    padding: 10px;
+    padding: 10px 16px !important;
   }
 
   .logo img {
@@ -857,14 +864,17 @@ footer h4 {
 }
 
 @media only screen and (max-width: 448px) {
-  .h1-28 {
-    font-size: 30px;
+  .container {
+    padding: 24px 16px !important;
   }
   h1 {
-    font-size: 22px;
+    font-size: 28px;
   }
   h2 {
     font-size: 18px;
+  }
+  .h1-28 {
+    font-size: 30px;
   }
   .btn {
     font-size: 14px;
@@ -884,6 +894,16 @@ footer h4 {
   .short-text,
   li {
     font-size: 14px !important;
+  }
+  .card,
+  .issue-card {
+    padding: 24px 16px;
+  }
+  .pulls {
+    padding-inline: 8px;
+  }
+  .card h4 {
+    font-size: 22px;
   }
 }
 
