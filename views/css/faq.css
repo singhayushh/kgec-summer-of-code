@@ -1,7 +1,7 @@
 :root {
   --main-bg-color: #000f1d;
   --main-wrapper-color: #07141a;
-  --main-text-color: #ffffff;
+  --shadow-color: #ffffff;
   --shadow-color: #ebecee;
   --para-color: #c4c4c4;
   --cta-color: #fbbc05;
@@ -34,7 +34,7 @@
 }
 
 #faq h1 {
-  color: var(--neon-green);
+  color: var(--pale-blue);
   text-align: center;
 }
 
@@ -57,9 +57,9 @@
   text-align: left;
   width: 100%;
   padding: 1em 0;
-  color: var(--main-text-color);
-  font-size: 1.15rem;
-  font-weight: 400;
+  color: var(--shadow-color);
+  font-size: 16px;
+  font-weight: 500;
   border: none;
   background: none;
   outline: none;
@@ -122,8 +122,21 @@
   will-change: opacity, max-height;
 }
 .accordion .accordion-content p {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 300;
   margin: 2em 0;
   color: var(--para-color);
+}
+
+@media only screen and (max-width: 448px) {
+  .accordion-title,
+  .accordion-content {
+    font-size: 14px;
+  }
+  .accordion .accordion-content p {
+    font-size: 14px;
+  }
+  #faq h1 {
+    font-size: 22px;
+  }
 }

@@ -2,7 +2,7 @@
 
 <section>
   <div class="container heading" style="width: 100%">
-    <h1 class="red">{ projects }</h1>
+    <h1 class="red h1-28">{ projects }</h1>
   </div>
   <div class="container projects">
     <img src="./img/red.png" alt="" class="img-left" />
@@ -10,16 +10,15 @@
     {{range $i,$j := .repos}}
     <div class="card">
       <h4>{{$j.Name}}</h4>
-      <p class="long-text">
-        {{$j.Description}}
-      </p>
-      {{range $k,$l := $j.Tags}}
+      <p class="long-text">{{$j.Description}}</p>
       <div class="tags">
+        {{range $k,$l := $j.Tags}}
         <div class="tag">{{$l}}</div>
+        {{end}}
       </div>
-      {{end}}
-      <a href="{{$j.Url}}" class="btn default-btn"><i class="fa-brands fa-github"></i>View on
-        GitHub</a>
+      <a href="{{$j.Url}}" class="btn default-btn"
+        ><i class="fa-brands fa-github"></i>View on GitHub</a
+      >
     </div>
     {{end}}
   </div>
