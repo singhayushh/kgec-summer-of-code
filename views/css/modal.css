@@ -20,9 +20,12 @@
   --neon-green: #00e4e4;
   --neon-green-dark: rgba(0, 255, 255, 0.15);
 
+  --neon-blue-transparent: rgba(0, 159, 238, 0.05);
+  --clr-light-transparent: rgba(255, 255, 255, 0.05);
+
   --blue-deep-dark: #182f57;
   --blue-mid: #305fb0;
-  --blue-light: #4285f4;
+  --blue-light: #007ba9;
   --pale-blue: #669fff;
 
   --spacing-m: 40px;
