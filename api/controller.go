@@ -58,13 +58,13 @@ var projects = []Repo{
 	},
 	{
 		Name:        "C-Coins",
-		Url:         html.EscapeString("https://github.com/DSCKGEC/C-Coins"),
+		Url:         html.EscapeString("https://github.com/DSCKGEC/C-Coin"),
 		Description: "Defining the basic behaviour of Blockchains and Web-2.0 imitation.",
 		Tags:        []string{"python"},
 	},
 	{
 		Name:        "kitkat.virus",
-		Url:         html.EscapeString("https://github.com/DSCKGEC/kitkat.virus"),
+		Url:         html.EscapeString("https://github.com/DSCKGEC/kitkat.v1rus"),
 		Description: "A simple python based keylogger.",
 		Tags:        []string{"python"},
 	},
@@ -118,7 +118,7 @@ var projects = []Repo{
 	},
 	{
 		Name:        "WallX",
-		Url:         html.EscapeString("https://github.com/DSCKGEC/flutter-wallx-wallpaperApp"),
+		Url:         html.EscapeString("https://github.com/DSCKGEC/WallX"),
 		Description: "A cool wallpaper app for smartphones.",
 		Tags:        []string{"dart", "html", "swift"},
 	},
