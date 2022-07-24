@@ -15,7 +15,7 @@ import (
 
 var repos [19]string = [19]string{"parkify", "Libraryly", "SeatAndEat", "codepen-clone", "Leucos", "Taskify", "Codeaon", "C-Coin", "kitkat.v1rus", "CS-GO-Professionals", "learn-machine-learn", "OCR-TextRecognition", "MovieRecommendationSystem", "NASA_nearest_earth_object_classifier", "Resumie", "Ksoc22-Health-Tracker-App", "samsung-gallery-clone", "flutter-wallx-wallpaperApp", "kgec-summer-of-code"}
 
-var startOfTime time.Time = time.Date(2022, time.Month(7), 10, 0, 0, 0, 0, time.UTC)
+var startOfTime time.Time = time.Date(2022, time.Month(7), 26, 0, 0, 0, 0, time.UTC)
 
 const (
 	layout = "2006-01-02T15:04:05Z"
