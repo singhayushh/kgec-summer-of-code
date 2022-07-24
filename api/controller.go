@@ -70,7 +70,7 @@ var projects = []Repo{
 	},
 	{
 		Name:        "CSGO-Professional",
-		Url:         html.EscapeString("https://github.com/DSCKGEC/CSGO-Professional"),
+		Url:         html.EscapeString("https://github.com/DSCKGEC/CS-GO-Professionals"),
 		Description: "Scraping, Cleaning and Exploring a Dataset about CSGO Athletes from hltv.org",
 		Tags:        []string{"jupyter notebook"},
 	},
@@ -112,7 +112,7 @@ var projects = []Repo{
 	},
 	{
 		Name:        "Galleriz",
-		Url:         html.EscapeString("https://github.com/DSCKGEC/samsung-gallery-clone"),
+		Url:         html.EscapeString("https://github.com/DSCKGEC/Galleriz"),
 		Description: "A beautiful and functional gallery app for smartphones.",
 		Tags:        []string{"javascript", "java", "objective-c", "ruby", "starlark"},
 	},
