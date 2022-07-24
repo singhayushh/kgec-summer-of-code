@@ -10,6 +10,7 @@ $(window).on("scroll", function () {
     $("header").css({
       position: "absolute",
       "background-color": "transparent",
+      "backdrop-filter": "blur(0px)",
     });
   }
 });
