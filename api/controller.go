@@ -122,6 +122,24 @@ var projects = []Repo{
 		Description: "A cool wallpaper app for smartphones.",
 		Tags:        []string{"dart", "html", "swift"},
 	},
+	{
+		Name:        "Cleanurge MCU",
+		Url:         html.EscapeString("https://github.com/DSCKGEC/cleanurge-mcu"),
+		Description: "A scalable IoT powered waste management system",
+		Tags:        []string{"c", "arduino", "microcontroller"},
+	},
+	{
+		Name:        "Cleanurge App",
+		Url:         html.EscapeString("https://github.com/DSCKGEC/cleanurge-app"),
+		Description: "App for Cleanurge - a scalable IoT powered waste management system",
+		Tags:        []string{"java", "firebase", "retrofit"},
+	},
+	{
+		Name:        "Cleanurge Backend",
+		Url:         html.EscapeString("https://github.com/DSCKGEC/cleanurge-backend"),
+		Description: "Backend API for Cleanurge - a scalable IoT powered waste management system",
+		Tags:        []string{"nodejs", "express", "mongoose"},
+	},
 }
 
 // RenderHome ...

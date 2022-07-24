@@ -12,7 +12,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-var repos [19]string = [19]string{"parkify", "Libraryly", "SeatAndEat", "codepen-clone", "Leucos", "Taskify", "Codeaon", "C-Coin", "kitkat.v1rus", "CS-GO-Professionals", "learn-machine-learn", "OCR-TextRecognition", "MovieRecommendationSystem", "NASA_nearest_earth_object_classifier", "Resumie", "Ksoc22-Health-Tracker-App", "samsung-gallery-clone", "flutter-wallx-wallpaperApp", "kgec-summer-of-code"}
+var repos [23]string = [23]string{"parkify", "Libraryly", "SeatAndEat", "codepen-clone", "Leucos", "Taskify", "Codeaon", "C-Coin", "kitkat.v1rus", "CS-GO-Professionals", "learn-machine-learn", "OCR-TextRecognition", "MovieRecommendationSystem", "NASA_nearest_earth_object_classifier", "Resumie", "Health-Tracker-App", "Galleriz", "WallX", "kgec-summer-of-code", "DevBook", "cleanurge-mcu", "cleanurge-app", "cleanurge-backend"}
 
 var startOfTimeForIssues time.Time = time.Date(2022, time.Month(7), 10, 0, 0, 0, 0, time.UTC)
 var startOfTimeForPulls time.Time = time.Date(2022, time.Month(7), 26, 0, 0, 0, 0, time.UTC)
