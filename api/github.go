@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/andanhm/go-prettytime"
@@ -119,18 +120,19 @@ func (g *GitHubAPI) FetchPullStats() {
 				user := &g.pulls[i]
 				if user.Login == *pull.User.Login {
 					flag = 1
-					user.addPull(newPull)
 					if len(pull.Labels) > 0 {
 						for j := 0; j < len(pull.Labels); j++ {
-
-							if *pull.Labels[j].Name == "easy" {
+							if strings.EqualFold(*pull.Labels[j].Name, "Easy") {
 								user.Points += 100
+								user.addPull(newPull)
 								break
-							} else if *pull.Labels[j].Name == "medium" {
+							} else if strings.EqualFold(*pull.Labels[j].Name, "Medium") {
 								user.Points += 200
+								user.addPull(newPull)
 								break
-							} else if *pull.Labels[j].Name == "hard" {
+							} else if strings.EqualFold(*pull.Labels[j].Name, "Hard") {
 								user.Points += 300
+								user.addPull(newPull)
 								break
 							}
 						}
@@ -152,19 +154,21 @@ func (g *GitHubAPI) FetchPullStats() {
 				if len(pull.Labels) > 0 {
 					for j := 0; j < len(pull.Labels); j++ {
 
-						if *pull.Labels[j].Name == "easy" {
+						if strings.EqualFold(*pull.Labels[j].Name, "Easy") {
 							newUser.Points += 100
 							break
-						} else if *pull.Labels[j].Name == "medium" {
+						} else if strings.EqualFold(*pull.Labels[j].Name, "Medium") {
 							newUser.Points += 200
 							break
-						} else if *pull.Labels[j].Name == "hard" {
+						} else if strings.EqualFold(*pull.Labels[j].Name, "Hard") {
 							newUser.Points += 300
 							break
 						}
 					}
 				}
-				g.pulls = append(g.pulls, newUser)
+				if newUser.Points != 0 {
+					g.pulls = append(g.pulls, newUser)
+				}
 			}
 
 		}
