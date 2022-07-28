@@ -37,7 +37,11 @@
                     class="github-handles"
                     >{{(index .pulls 1).Login}}</a
                   >
-                  <a href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 1).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged" class="modal-btn button">View PRs</a>
+                  <a
+                    href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 1).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged"
+                    class="modal-btn button"
+                    >View PRs</a
+                  >
                 </div>
               </div>
             </div>
@@ -69,7 +73,11 @@
                     class="github-handles"
                     >{{(index .pulls 0).Login}}</a
                   >
-                  <a href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 0).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged" class="modal-btn button">View PRs</a>
+                  <a
+                    href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 0).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged"
+                    class="modal-btn button"
+                    >View PRs</a
+                  >
                 </div>
               </div>
             </div>
@@ -101,7 +109,11 @@
                     class="github-handles"
                     >{{(index .pulls 2).Login}}</a
                   >
-                  <a href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 2).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged" class="modal-btn button">View PRs</a>
+                  <a
+                    href="https://github.com/pulls?q=is%3Apr+author%3A{{(index .pulls 2).Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged"
+                    class="modal-btn button"
+                    >View PRs</a
+                  >
                 </div>
               </div>
             </div>
@@ -119,7 +131,7 @@
                 <!-- <th>College</th> -->
                 <th>Rank</th>
                 <th>Points</th>
-                <th>Github</th>
+                <th>GitHub</th>
                 <th>View PRs</th>
               </tr>
             </thead>
@@ -148,9 +160,19 @@
                   </div>
                 </td>
                 <td>{{$j.Points}}</td>
-                <td><a href="https://github.com/{{$j.Login}}" class="github-handles">{{$j.Login}}</a></td>
                 <td>
-                  <a href="https://github.com/pulls?q=is%3Apr+author%3A{{$j.Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged" class="modal-btn button">View PRs</a>
+                  <a
+                    href="https://github.com/{{$j.Login}}"
+                    class="github-handles"
+                    >{{$j.Login}}</a
+                  >
+                </td>
+                <td>
+                  <a
+                    href="https://github.com/pulls?q=is%3Apr+author%3A{{$j.Login}}+archived%3Afalse+org%3Adsckgec+is%3Amerged"
+                    class="modal-btn button"
+                    >View PRs</a
+                  >
                 </td>
               </tr>
               {{end}}
