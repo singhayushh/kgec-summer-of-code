@@ -46,6 +46,7 @@
   cursor: pointer;
   backdrop-filter: blur(5px);
   font-family: monospace !important;
+  white-space: nowrap;
 }
 
 .modal-btn:hover {

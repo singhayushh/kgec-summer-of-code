@@ -229,6 +229,7 @@ img.circle-img.circle-img--small {
   vertical-align: middle;
   border: none;
   text-align: center;
+  white-space: nowrap;
 }
 
 /* .table tbody tr {
@@ -250,6 +251,15 @@ img.circle-img.circle-img--small {
 @media only screen and (max-width: 768px) {
   .leaderboard-row {
     grid-template-columns: auto;
+  }
+  .leaderboard-row .col-sm-4:first-child {
+    order: 2;
+  }
+  .leaderboard-row .col-sm-4:nth-child(2) {
+    order: 1;
+  }
+  .leaderboard-row .col-sm-4:last-child {
+    order: 3;
   }
   .leaderboard-card {
     max-width: 300px;
