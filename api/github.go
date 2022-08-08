@@ -17,6 +17,7 @@ var repos [23]string = [23]string{"parkify", "Libraryly", "SeatAndEat", "codepen
 
 var startOfTimeForIssues time.Time = time.Date(2022, time.Month(7), 10, 0, 0, 0, 0, time.UTC)
 var startOfTimeForPulls time.Time = time.Date(2022, time.Month(7), 26, 0, 0, 0, 0, time.UTC)
+var endOfTimeForPulls time.Time = time.Date(2022, time.Month(8), 7, 0, 0, 0, 0, time.UTC)
 
 const (
 	layout = "2006-01-02T15:04:05Z"
@@ -111,7 +112,7 @@ func (g *GitHubAPI) FetchPullStats() {
 		}
 
 		for _, pull := range pulls {
-			if (*pull.CreatedAt).Before(startOfTimeForPulls) || pull.MergedAt == nil {
+			if (*pull.CreatedAt).Before(startOfTimeForPulls) || pull.MergedAt == nil || (*pull.CreatedAt).After(endOfTimeForPulls) {
 				continue
 			}
 			newPull := Pull{*pull.Title, *pull.HTMLURL, repo}
